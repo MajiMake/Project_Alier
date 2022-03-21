@@ -1,9 +1,11 @@
 # Выписать сумму всех чисел меньше 1000, кратных 3 или 5
-a = 0
-b = 0
-for a in range(1000):
-    if a % 5 == 0 or a % 3 == 0:
-        b += a
-print (b)
-
-
+def counter():
+    full = 0
+    count = 0
+    for unit in range(1000):
+        if unit % 3 == 0 or unit % 5 == 0:
+            full += unit
+            count += 1
+    return full
+print('сумма всех чисел меньше 1000 и кратных 3 или 5 ровна {}'.format(counter()))
+print('j')
