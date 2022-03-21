@@ -1,70 +1,52 @@
-def Calc(operation, input):
-    if input == 3:
-        if operation == '+':
-            def calc(a1,a2,b1,b2,b3 = None, a3 = None):
-                c1 = a1 + b1
-                c2 = a2 + b2
-                c3 =  a3 + b3
-                return c1,c2,c3
+import math
 
 
-        elif operation == '-':
-            def calc(a1,a2,b1,b2,b3 = None, a3 = None):
-                c1 = a1 + b1
-                c2 = a2 + b2
-                c3 = a3 + b3
-                return c1,c2,c3
+class Vec2d:
+
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def __str__(self):
+        return '({},{})'.format(self.a, self.b)
+
+    def len(self):
+        return int(math.sqrt(self.a ** 2 + self.b ** 2))
 
 
-        elif operation == '*':
-            def calc(a1,a2,b1,b2,b3 = None, a3 = None):
-                c1 = a1 + b1
-                c2 = a2 + b2
-                c3 = a3 + b3
-                return c1,c2,c3
+    def __add__(self, other):
+        return Vec2d(self.a + other.a, self.b + other.b)
 
-        elif operation == '/':
-            def calc(a1,a2,b1,b2,b3 = None, a3 = None):
-                c1 = a1 + b1
-                c2 = a2 + b2
-                c3 = a3 + b3
-                return c1,c2,c3
-        else:
-            raise Exception('Я могу только делить, умножать, вычитать и прибавлять')
-    else:
-        if operation == '+':
-            def calc(a1, a2, b1, b2):
-                c1 = a1 + b1
-                c2 = a2 + b2
-                return c1, c2
+    def __sub__(self, other):
+        return Vec2d(self.a - other.a, self.b - other.b)
+
+    def __rmul__(self, other):
+        return Vec2d(self.a * other.a, self.b * other.b)
+
+    def __truediv__(self, other):
+        return Vec2d(self.a / other.a, self.b / other.b)
+
+    def scalar(self, scalar_value):
+        return self.a * scalar_value, self.b * scalar_value
+
+    def dot(self, other):
+        return self.a * other.a + self.b * other.b
 
 
-        elif operation == '-':
-            def calc(a1, a2, b1, b2):
-                c1 = a1 + b1
-                c2 = a2 + b2
-
-                return c1, c2
 
 
-        elif operation == '*':
-            def calc(a1, a2, b1, b2):
-                c1 = a1 + b1
-                c2 = a2 + b2
-                return c1, c2
+vector_1 = Vec2d(12, 45)
 
-        elif operation == '/':
-            def calc(a1, a2, b1, b2):
-                c1 = a1 + b1
-                c2 = a2 + b2
-                return c1, c2
-        else:
-            raise Exception('Я могу только делить, умножать, вычитать и прибавлять')
-    return calc
+vector_2 = Vec2d(16, 31)
 
+vector_3 = Vec2d(1, 13)
 
-vid_vektora = 2
-counter = Calc('+', vid_vektora)
-print(counter(12,28,34,15))
+vector_4 = Vec2d(0, -1)
 
+result_vector = vector_4.scalar(5)
+vector_summ = vector_3.dot(vector_4)
+vector_normalize = vector_2.len()
+print(vector_normalize)
+print(result_vector)
+print(vector_summ)
 
