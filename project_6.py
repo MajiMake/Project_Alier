@@ -7,7 +7,7 @@ class Project6:
     def square_sum(self):
         self.count = 0
         self.amount = 0
-        for i in range(1, self.stop):
+        for i in range(1, self.stop + 1):
             self.count = i ** 2
             self.amount += self.count
         return self.amount
@@ -15,7 +15,7 @@ class Project6:
     def square_of_sum(self):
         self.count = 0
         self.amount = 0
-        for number in range(1, self.stop):
+        for number in range(1, self.stop + 1):
             self.count += number
 
         self.amount = self.count ** 2
@@ -25,6 +25,6 @@ class Project6:
         print(self.square_of_sum() - self.square_sum())
 
 
-proto10 = Project6(11)
+proto10 = Project6(10)
 proto100 = Project6(100)
 proto100.act()
