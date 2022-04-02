@@ -1,15 +1,30 @@
-def square_sum(c = 0):
-    for n in range(1,11):
-        q = c + n**2
-    print(q)
+class Project6:
+    def __init__(self, stop):
+        self.count = 0
+        self.amount = 0
+        self.stop = stop
 
-def square_of_sum(c = 0):
-    for n in range(1,11):
-        c += n
+    def square_sum(self):
+        self.count = 0
+        self.amount = 0
+        for i in range(1, self.stop):
+            self.count = i ** 2
+            self.amount += self.count
+        return self.amount
 
-    q = c**2
-    print(q)
+    def square_of_sum(self):
+        self.count = 0
+        self.amount = 0
+        for number in range(1, self.stop):
+            self.count += number
+
+        self.amount = self.count ** 2
+        return self.amount
+
+    def act(self):
+        print(self.square_of_sum() - self.square_sum())
 
 
-square_sum()
-square_of_sum()
+proto10 = Project6(11)
+proto100 = Project6(100)
+proto100.act()
