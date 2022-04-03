@@ -25,6 +25,3 @@ class Project6:
         print(self.square_of_sum() - self.square_sum())
 
 
-proto10 = Project6(10)
-proto100 = Project6(100)
-proto100.act()
